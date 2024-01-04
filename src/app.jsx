@@ -1,7 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import Comp from './Comp.jsx';
 
-const root = createRoot(document.body);
-root.render(
-    <h1>Hello</h1>
-)
+// //* ipcRenderer
+// import { ipcRenderer } from 'electron';
+
+createRoot(document.getElementById('root')).render(
+    <Comp />,
+);
