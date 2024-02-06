@@ -25,4 +25,4 @@
  *  });
  * ```
  */
-import './app.jsx';
+import './View/app.jsx'

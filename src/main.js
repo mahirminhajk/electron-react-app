@@ -2,9 +2,7 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 
 //* mongoose
 import mongoose from 'mongoose';
-
-
-
+import { createStudent } from './controllers/studentCon';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -33,7 +31,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  mongoose.connect('mongodb://localhost:27017/blogreact').then(() => {
+  mongoose.connect('mongodb+srv://admin:admin@blogly.axmlry8.mongodb.net/college?retryWrites=true&w=majority').then(() => {
     console.log('connected to mongodb');
   }
   ).catch((err) => {
@@ -42,6 +40,9 @@ app.on('ready', () => {
   );
 
   ipcMain.handle('ping', () => 'pong');
+ //* create-student
+  ipcMain.handle('create-student', createStudent);
+
 
   createWindow();
 
